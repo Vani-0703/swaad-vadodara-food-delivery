@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 60% 98%;
+    --foreground: 275 35% 12%;
+    --border: 275 20% 90%;
+    --input: 275 20% 90%;
+    --ring: 355 100% 65%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-cream text-ink-900 font-body antialiased;
+  }
+
+  ::selection {
+    @apply bg-chili-500/20 text-chili-700;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #ff8a3d, #ff4757);
+    border-radius: 999px;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/60 backdrop-blur-xl border border-white/40;
+  }
+  .glass-dark {
+    @apply bg-ink-900/60 backdrop-blur-xl border border-white/10;
+  }
+  .text-gradient-spice {
+    @apply bg-gradient-spice bg-clip-text text-transparent;
+  }
+  .shimmer-bg {
+    background: linear-gradient(90deg, #f5f2f7 25%, #fff2e3 37%, #f5f2f7 63%);
+    background-size: 400% 100%;
+    @apply animate-shimmer;
+  }
+  .plate-ring {
+    background: conic-gradient(from 0deg, #ff4757, #ff8a3d, #ffb800, #ff4757);
+    padding: 2.5px;
+    border-radius: 9999px;
+  }
+  .container-page {
+    @apply mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-8;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
